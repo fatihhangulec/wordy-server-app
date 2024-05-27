@@ -1,1 +1,1 @@
-web: node index.js && curl -4 icanhazip.com
+web: curl -4 icanhazip.com && node index.js
