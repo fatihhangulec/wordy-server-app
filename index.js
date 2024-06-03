@@ -84,7 +84,6 @@ const ipGoster = () => {
 }
 
 app.listen(PORT, () => {
-    console.log(`Sunucu ${PORT} portunda çalışıyor.`)
-    console.log(`IP address = ${ipGoster()}`)
+    console.log(`Sunucu ${PORT} portunda ve ${ipGoster()} IP adresinde çalışıyor.`)
 })
 
