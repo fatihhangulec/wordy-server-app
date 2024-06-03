@@ -18,6 +18,8 @@ import {
     
 } from "./gemini-settings.js"
 
+import os from 'os';
+
 dotenv.config()
 
 const PORT = process.env.PORT || 4545
@@ -70,4 +72,17 @@ app.post("/yapay-zeka", async (req,res) => {
 app.listen(PORT, () => {
     console.log(`Sunucu ${PORT} portunda çalışıyor.`)
 })
+
+var ip = '0.0.0.0';
+var ips = os.networkInterfaces();
+Object
+  .keys(ips)
+  .forEach(function(_interface) {
+     ips[_interface]
+      .forEach(function(_dev) {
+        if (_dev.family === 'IPv4' && !_dev.internal) ip = _dev.address 
+      }) 
+  });
+
+console.log(`IP address = ${ip}`)
 
