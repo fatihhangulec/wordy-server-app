@@ -69,20 +69,22 @@ app.post("/yapay-zeka", async (req,res) => {
     console.log(`Türkçesi: ${turkish}\nİngilizcesi: ${english}`)
 })
 
+const ipGoster = () => {
+  var ip = '0.0.0.0';
+  var ips = os.networkInterfaces();
+  Object
+    .keys(ips)
+    .forEach(function(_interface) {
+       ips[_interface]
+        .forEach(function(_dev) {
+          if (_dev.family === 'IPv4' && !_dev.internal) ip = _dev.address 
+        }) 
+    });
+    return ip
+}
+
 app.listen(PORT, () => {
     console.log(`Sunucu ${PORT} portunda çalışıyor.`)
+    console.log(`IP address = ${ipGoster()}`)
 })
-
-var ip = '0.0.0.0';
-var ips = os.networkInterfaces();
-Object
-  .keys(ips)
-  .forEach(function(_interface) {
-     ips[_interface]
-      .forEach(function(_dev) {
-        if (_dev.family === 'IPv4' && !_dev.internal) ip = _dev.address 
-      }) 
-  });
-
-console.log(`IP address = ${ip}`)
 
